@@ -4,11 +4,10 @@
 author: Neil Nelson  
 date: 04/23/2016  
 
-If you already of Caffe installed you can bypass Caffe download and compile and go directly to 'Create test directory under caffe-master.'
+If you already have Caffe installed and the mnist lmdb files created, you can bypass the Caffe download and compile and go directly to 'Create test directory under caffe-master' below.
 
 [Download Caffe](https://github.com/BVLC/caffe) using the 'Download ZIP' button.  
  
-
 Unzip caffe-master.zip.
 
 ```
@@ -56,7 +55,7 @@ examples/mnist/mnist_train_lmdb:
 data.mdb  lock.mdb  
 ```
 
-#### Create test directory under caffe-master.
+#### Create test directory under caffe-master
 ```
 mkdir test  
 ```
@@ -100,7 +99,7 @@ and run as follows.
 ```
 The bash file records 'free' at the beginning and end. 30 repeats of the standard mnist are run using the executable build/tools/caffe. A log of the last training run is in test/run.log.  
   
-Since this memory log will capture memory used by all programs running on the computer, do not initiate or stop any program while the test is running.  
+Since this log will capture memory used by all programs running on the computer, do not initiate or stop any program while the test is running.  
   
 After the 30 repeats are done, get the memory used numbers to the right of
 
