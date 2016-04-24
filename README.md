@@ -4,13 +4,11 @@
 author: Neil Nelson  
 date: 04/23/2016  
 
-
-Bypass Caffe download and compile and go directly to the memory test [Create test directory under caffe-master.][].
-
+Bypass Caffe download and compile and go directly to 'Create test directory under caffe-master.'
 
 [Download Caffe](https://github.com/BVLC/caffe) using the 'Download ZIP' button.  
  
- 
+
 Unzip caffe-master.zip.
 
 ```
@@ -20,7 +18,6 @@ ls -l README.md gives 2102 Apr 20 15:57
 
 cp Makefile.config.example Makefile.config
 ```
-
 
 Make changes to Makefile.config as shown in the following diff with Makefile.config.example.  
 ```
@@ -119,4 +116,6 @@ from the two 'free' outputs in test/mem_test.log.
 Subtract the beginning number from the ending number. Divide that result by 30.  
   
 I get (3342636 - 1627552) / 30 = **57169** kilobytes used (leaked) on average by each Caffe training run.  
+  
+  
   
