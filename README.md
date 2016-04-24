@@ -1,5 +1,5 @@
   
-### Caffe memory leak test procedure ###  
+### Caffe memory leak test procedure  
   
 author: Neil Nelson  
 date: 04/23/2016  
