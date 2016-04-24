@@ -97,7 +97,7 @@ and run as follows.
 ```
 ./test/mem_test.sh > test/mem_test.log  
 ```
-The bash file records 'free' at the beginning and end. 30 repeats of the standard mnist are run using the executable build/tools/caffe. A log of the last training run is in test/run.log.  
+The bash file records 'free' at the beginning and end. 30 repeats of the mnist are run using the executable build/tools/caffe. A log of the last training run is in test/run.log.  
   
 Since this log will capture memory used by all programs running on the computer, do not initiate or stop any program while the test is running.  
   
