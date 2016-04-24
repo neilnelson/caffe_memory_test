@@ -4,7 +4,7 @@
 author: Neil Nelson  
 date: 04/23/2016  
 
-If you already have Caffe installed and the mnist lmdb files created you can bypass the Caffe download and compile and go directly to 'Create test directory under caffe-master' below.
+If you already have Caffe installed and the mnist lmdb files created you can bypass the Caffe download and compile and go directly to '#### Create test directory under caffe-master ####' below.
 
 [Download Caffe](https://github.com/BVLC/caffe) using the 'Download ZIP' button.  
  
