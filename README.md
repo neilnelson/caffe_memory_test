@@ -4,7 +4,7 @@
 author: Neil Nelson  
 date: 04/23/2016  
 
-Bypass Caffe download and compile and go directly to 'Create test directory under caffe-master.'
+If you already of Caffe installed you can bypass Caffe download and compile and go directly to 'Create test directory under caffe-master.'
 
 [Download Caffe](https://github.com/BVLC/caffe) using the 'Download ZIP' button.  
  
@@ -58,8 +58,7 @@ examples/mnist/mnist_train_lmdb:
 data.mdb  lock.mdb  
 ```
 
-
-#### Create test directory under caffe-master. ####  
+#### Create test directory under caffe-master.
 ```
 mkdir test  
 ```
@@ -113,7 +112,7 @@ After the 30 repeats are done, get the memory used numbers to the right of
 
 from the two 'free' outputs in test/mem_test.log.  
   
-Subtract the beginning number from the ending number. Divide that result by 30.  
+Subtract the beginning number from the ending number. Divide that result by 30 (30 Caffe mnist runs).  
   
 I get (3342636 - 1627552) / 30 = **57169** kilobytes used (leaked) on average by each Caffe training run.  
   
