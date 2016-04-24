@@ -44,8 +44,6 @@ tail runtest.log
 [  PASSED  ] 2003 tests.  
 ```
 
-Copy downloaded mnist data from a prior Caffe version directory resulting in the following.  
-
 Download the mnist data and create the lmdb files using the steps under _Prepare Datasets_ at [Training LeNet on MNIST with Caffe](http://caffe.berkeleyvision.org/gathered/examples/mnist.html).
 
 You should have the following lmdb files.
@@ -112,9 +110,6 @@ After the 30 repeats are done, get the memory used numbers to the right of
 
 from the two 'free' outputs in test/mem_test.log.  
   
-Subtract the beginning number from the ending number. Divide that result by 30 (30 Caffe mnist runs).  
+Subtract the beginning number from the ending number. Divide that result by 30 (30 Caffe mnist training runs).  
   
-I get (3342636 - 1627552) / 30 = **57169** kilobytes used (leaked) on average by each Caffe training run.  
-  
-  
-  
+I get (3342636 - 1627552) / 30 = **57169** kilobytes used (leaked) on average by each Caffe mnist training run.  
