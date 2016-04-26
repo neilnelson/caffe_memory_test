@@ -1,5 +1,5 @@
   
-### Caffe memory leak test procedure
+### Caffe memory leak test procedure - 30 mnist training repeats
 
 #### Repeat an abbreviated mnist training 30 times and measure the memory used at the beginning and the end. 
   
