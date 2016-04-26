@@ -52,3 +52,37 @@ data.mdb  lock.mdb
 examples/mnist/mnist_train_lmdb:  
 data.mdb  lock.mdb  
 ```
+
+Create test directory under caffe-master
+```
+mkdir test  
+```
+
+Copy examples/mnist/lenet_solver.prototxt to the test directory.  
+```
+cp examples/mnist/lenet_solver.prototxt test/  
+```
+
+Make the following changes to test/lenet_solver.prototxt to abbreviate the training process and reduce the time to complete.  
+```
+diff examples/mnist/lenet_solver.prototxt test/lenet_solver.prototxt
+8c8
+< test_interval: 500
+---
+> test_interval: 25
+18c18
+< display: 100
+---
+> display: 10
+20c20
+< max_iter: 10000
+---
+> max_iter: 200
+22,23c22,23
+< snapshot: 5000
+< snapshot_prefix: "examples/mnist/lenet"
+---
+> # snapshot: 5000
+> # snapshot_prefix: "examples/mnist/lenet"  
+```
+
