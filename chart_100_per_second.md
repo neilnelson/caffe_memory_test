@@ -1,5 +1,7 @@
   
-### Caffe memory leak test procedure - Obtain chart of memory used by a Caffe mnist run using 100 per second observations. 
+### Caffe memory leak test procedure
+
+## Obtain a chart of memory used by a Caffe mnist run using 100 per second observations. 
   
 author: Neil Nelson  
 date: 04/26/2016  
@@ -14,7 +16,7 @@ get_memory_usage.php
 create_mem_csv.php
 ```
 
-get_memory_usage.php is the free stats collection program. You can do a preliminary run of the Caffe mnist training, shown below, to find out how long it take. Do a head and tail of the test/run.log to get the beginning and ending run times. Subtract the beginning from the ending to get run seconds. Add ten seconds or so so that the get_memory_usage.php run will get stats before and after the Caffe run. I used 30 seconds here.
+get_memory_usage.php is the free stats collection program. You can do a preliminary run of the Caffe mnist training, shown below, to find out how long it takes. Do a head and tail of the test/run.log to get the beginning and ending run times. Subtract the beginning from the ending to get run seconds. Add ten seconds or so so that get_memory_usage.php run will get stats before and after the Caffe run. I used a total of 30 seconds. 
 ```
 php test/get_memory_usage.php *number_of_seconds*
 ```
@@ -36,6 +38,6 @@ qplot(mem_used$seconds, mem_used$mem_used, main = "Cuda mnist memory used", xlab
   theme(panel.grid.minor = element_line(colour="white", size=0.3)) +
   scale_x_continuous(minor_breaks = seq(0 , 50, 1), breaks = seq(0, 50, 10))
 ```
-Here is my ![memory usage graph](usage_100.png)
+Here is my chart  
 Format: ![memory usage graph](usage_100.png)
 
