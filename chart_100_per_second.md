@@ -18,7 +18,7 @@ create_mem_csv.php
 
 get_memory_usage.php is the free stats collection program. You can do a preliminary run of the Caffe mnist training, shown below, to find out how long it takes. Do a head and tail of the test/run.log to get the beginning and ending run times. Subtract the beginning from the ending to get run seconds. Add ten seconds or so so that get_memory_usage.php run will get stats before and after the Caffe run. I used a total of 30 seconds. 
 ```
-php test/get_memory_usage.php *number_of_seconds*
+php test/get_memory_usage.php _number_of_seconds_
 ```
 
 At least one second after starting get_memory_usage.php, start the Caffe mnist run.
