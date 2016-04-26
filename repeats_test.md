@@ -1,5 +1,5 @@
   
-### Caffe memory leak test procedure - Obtain chart of memory used by a Caffe mnist run with 100 per second observations. 
+### Caffe memory leak test procedure - Repeat an abbreviated mnist training 30 times and measure the memory used at the beginning and the end. 
   
 author: Neil Nelson  
 date: 04/26/2016  
