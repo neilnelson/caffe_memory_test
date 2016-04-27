@@ -33,10 +33,10 @@ The following commands are done in RStudio.
 ```
 mem_used_log = read.csv("/caffe_path_from_root/caffe-master/test/mem_used.csv")
 library(ggplot2)
-qplot(mem_used_log$seconds, mem_used_log$mem_used, main = "Cuda mnist memory used", xlab='Seconds', ylab='Memory Used (megabytes)') +
+qplot(mem_used_log$seconds, mem_used_log$mem_used, main = "Caffe mnist memory used", xlab='Seconds', ylab='Total System Memory Used (MB)') +
   theme(panel.grid.major = element_line(colour="white", size=0.5)) +
   theme(panel.grid.minor = element_line(colour="white", size=0.3)) +
-  scale_x_continuous(minor_breaks = seq(-5 , 50, 1), breaks = seq(0, 50, 10)
+  scale_x_continuous(minor_breaks = seq(-5 , 50, 1), breaks = seq(0, 50, 10))
 ```
 Here is my chart.  
 ![memory usage graph](usage_100.png)
