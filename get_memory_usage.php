@@ -10,7 +10,7 @@
     exit;
   }
 
-  $deciseconds = $argv[1] * 100; // $argv[1] is number of seconds to run.
+  $deciseconds = $argv[1] * 100; // $argv[1] is the number of seconds to run.
 
   $target_interval = .01; // seconds
   $time_vector_length = 5;
