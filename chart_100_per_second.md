@@ -21,9 +21,9 @@ get_memory_usage.php is the free stats collection program. You can do a prelimin
 php test/get_memory_usage.php _number_of_seconds_
 ```
 
-At least one second after starting get_memory_usage.php, start the Caffe mnist run.
+At least one second after starting get_memory_usage.php, start the Caffe mnist run. Run these programs in separate terminal windows.
 ```
-build/tools/caffe train --solver=test/lenet_solver.prototxt >> test/run.log 2>&1
+build/tools/caffe train --solver=test/lenet_solver.prototxt > test/run.log 2>&1
 ```
 The next program collects observation times and memory used stats from the test/get_memory_usage.log and writes those to a csv file test/mem_used.csv. In order to match the times between the memory usage log file and the Caffe log file, the program assumes that the change time on the Caffe log file is the date for the times collected in that file. This would not be true if the Caffe run spanned midnight.
 ```
@@ -36,8 +36,23 @@ library(ggplot2)
 qplot(mem_used_log$seconds, mem_used_log$mem_used, main = "Cuda mnist memory used", xlab='Seconds', ylab='Memory Used (megabytes)') +
   theme(panel.grid.major = element_line(colour="white", size=0.5)) +
   theme(panel.grid.minor = element_line(colour="white", size=0.3)) +
-  scale_x_continuous(minor_breaks = seq(0 , 50, 1), breaks = seq(0, 50, 10))
+  scale_x_continuous(minor_breaks = seq(-5 , 50, 1), breaks = seq(0, 50, 10)
 ```
 Here is my chart  
 Format: ![memory usage graph](usage_100.png)
+
+We can look at test/mem_used.csv to get an idea of the amount of memory leak for this Caffe mnist run. It looks like the Caffe run starts before the zero mark and we can get a memory used figure close to one second back as follows.
+```
+grep '\-0' test/mem_used.csv | head
+```
+Get the second number, the one after the comma. This is the system memory used close to one second before the first line with time on it in the Caffe run log (test/run.log). The shelf is flat at this point.
+
+Get the ending memory usage number as follows.
+```
+tail test/mem_used.csv
+```
+The second number, as above, on the last line is the end of the shelf to the right in the picture. That difference here is
+```
+2522.5896148682-2460.8234863281 = 61.766 megabytes approximately.
+```
 
