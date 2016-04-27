@@ -38,21 +38,21 @@ qplot(mem_used_log$seconds, mem_used_log$mem_used, main = "Cuda mnist memory use
   theme(panel.grid.minor = element_line(colour="white", size=0.3)) +
   scale_x_continuous(minor_breaks = seq(-5 , 50, 1), breaks = seq(0, 50, 10)
 ```
-Here is my chart  
-Format: ![memory usage graph](usage_100.png)
+Here is my chart.  
+![memory usage graph](usage_100.png)
 
-We can look at test/mem_used.csv to get an idea of the amount of memory leak for this Caffe mnist run. It looks like the Caffe run starts before the zero mark and we can get a memory used figure close to one second back as follows.
+We can look at test/mem_used.csv to get an idea of the size of the memory leak for this Caffe mnist run. It looks like the Caffe run starts before the zero mark and we can get a memory used figure close to one second before the zero mark as follows.
 ```
 grep '\-0' test/mem_used.csv | head
 ```
-Get the second number, the one after the comma. This is the system memory used close to one second before the first line with time on it in the Caffe run log (test/run.log). The shelf is flat at this point.
+Get the second number, the one after the comma. This is the system memory used close to one second before the first line time in the Caffe run log (test/run.log). The shelf is flat at this point.
 
 Get the ending memory usage number as follows.
 ```
 tail test/mem_used.csv
 ```
-The second number, as above, on the last line is the end of the shelf to the right in the picture. That difference here is
+On the last line the second number, as above, is the end of the shelf to the right in the picture. That difference here is
 ```
-2522.5896148682-2460.8234863281 = 61.766 megabytes approximately.
+2522.5896148682-2460.8234863281 = 61.766 megabytes (leak) approximately.
 ```
 
