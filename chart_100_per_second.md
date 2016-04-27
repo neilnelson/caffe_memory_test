@@ -8,20 +8,20 @@ date: 04/26/2016
 
 Requires PHP and RStudio.  
 
-This procedure is run after Caffe is installed. The installation used here is at [Caffe install procedure used in testing](https://github.com/neilnelson/caffe_memory_test/blob/master/caffe_install.md).  
+This procedure is run after the test set-up is completed. [Caffe install procedure used in testing](https://github.com/neilnelson/caffe_memory_test/blob/master/caffe_install.md)  
 
-Copy the following programs from the caffe_memory_test page to the caffe-master/test directory created in the just mentioned Caffe install procedure.
+Copy the following programs from the [caffe_memory_test](https://github.com/neilnelson/caffe_memory_test) page to the caffe-master/test directory created in the just mentioned Caffe install procedure.
 ```
 get_memory_usage.php  
 create_mem_csv.php
 ```
 
-get_memory_usage.php is the free stats collection program. You can do a preliminary run of the Caffe mnist training, shown below, to find out how long it takes. Do a head and tail of the test/run.log to get the beginning and ending run times. Subtract the beginning from the ending to get run seconds. Add ten seconds or so so that get_memory_usage.php run will get stats before and after the Caffe run. I used a total of 30 seconds to get 5 seconds on each side. 
+get_memory_usage.php is the __free__ stats collection program. You can do a preliminary run of the Caffe mnist training, shown below, to find out how long it takes. The run takes around 18 seconds here. Do a head and tail of the test/run.log to get the beginning and ending run times. Subtract the beginning from the ending to get run seconds. Add ten seconds so that get_memory_usage.php run will get stats before and after the Caffe run. I used a total of 30 seconds to get about 5 seconds on each side. 
 ```
 php test/get_memory_usage.php _number_of_seconds_
 ```
 
-About five seconds after starting get_memory_usage.php start the Caffe mnist run. Run these programs in separate terminal windows and while they are running just watch and do not cause any other actions on the computer so that the memory stats being recorded are not confused with other activity. The run takes around 18 seconds here.
+About five seconds after starting get_memory_usage.php start the Caffe mnist run. Run these programs in separate terminal windows and while they are running just watch and do not cause any other actions on the computer so that the memory stats being recorded are not confused with other activity. __free__ reports memory used by everything on the computer and we want the memory changes to be dominated by the Caffe run.
 ```
 build/tools/caffe train --solver=test/lenet_solver.prototxt > test/run.log 2>&1
 ```
