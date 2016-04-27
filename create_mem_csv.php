@@ -2,11 +2,11 @@
 /*
   
 */
-  // $day = '2016-04-26';
+  // $day = '2016-04-26'; // an example
   $run_log_name = 'test/run.log';
   $day = date('Y-m-d',filemtime($run_log_name));
 
-  // $begin_time = '11:53:29.875337'; // from caffe test/run.log.
+  // $begin_time = '11:53:29.875337'; // an example from caffe test/run.log.
   $run_log = file_get_contents($run_log_name);
   $run_log_lines = explode("\n",$run_log);
   unset($run_log);

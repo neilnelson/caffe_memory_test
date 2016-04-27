@@ -2,8 +2,8 @@
 /*
   Get free stats 100 times a second for the length of a Caffe mnist run.
   The automatic sleep_value correction becomes stable here at around 1
-  second and so start the Caffe run at least a second after starting
-  this program.
+  second and so start the Caffe run at least a second or more after
+  starting this program.
 */
   if ($argc != 2) {
     echo "php get_memory_usage.php number_of_seconds\n";
