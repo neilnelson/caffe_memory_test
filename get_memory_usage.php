@@ -23,7 +23,8 @@
     $log .= shell_exec('free');
     $log .= memory_get_usage()."\n";
 
-    // memory_get_usage Returns the amount of memory, in bytes, that's currently being allocated to this PHP script.
+    // memory_get_usage Returns the amount of memory, in bytes, that is
+    // currently being allocated to this PHP script.
     // http://php.net/manual/en/function.memory-get-usage.php
 
     // Use a running average with a gradual correction to converge to
@@ -33,7 +34,7 @@
       for($k=1;$k<count($time_vector);++$k)
         $sum += $time_vector[$k]-$time_vector[$k-1];
       array_shift($time_vector); // pop the first value off.
-      $avg = $sum / count($time_vector);
+      $avg = $sum / count($time_vector); // At this point count($time_vector) should equal $time_vector_length.
       $sleep_value += intval(($target_interval - $avg)*250000); // (1000000*.25);
     }
 
