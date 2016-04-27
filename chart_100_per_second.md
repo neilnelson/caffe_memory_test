@@ -16,12 +16,12 @@ get_memory_usage.php
 create_mem_csv.php
 ```
 
-get_memory_usage.php is the free stats collection program. You can do a preliminary run of the Caffe mnist training, shown below, to find out how long it takes. Do a head and tail of the test/run.log to get the beginning and ending run times. Subtract the beginning from the ending to get run seconds. Add ten seconds or so so that get_memory_usage.php run will get stats before and after the Caffe run. I used a total of 30 seconds. 
+get_memory_usage.php is the free stats collection program. You can do a preliminary run of the Caffe mnist training, shown below, to find out how long it takes. Do a head and tail of the test/run.log to get the beginning and ending run times. Subtract the beginning from the ending to get run seconds. Add ten seconds or so so that get_memory_usage.php run will get stats before and after the Caffe run. I used a total of 30 seconds to get 5 seconds on each side. 
 ```
 php test/get_memory_usage.php _number_of_seconds_
 ```
 
-About five seconds after starting get_memory_usage.php (to get five seconds on each side of the Caffe run), start the Caffe mnist run. Run these programs in separate terminal windows and while they are running just watch and do not cause any other actions on the computer so that the memory stats being recorded are not confused with other activity. The run takes around 18 seconds here.
+About five seconds after starting get_memory_usage.php start the Caffe mnist run. Run these programs in separate terminal windows and while they are running just watch and do not cause any other actions on the computer so that the memory stats being recorded are not confused with other activity. The run takes around 18 seconds here.
 ```
 build/tools/caffe train --solver=test/lenet_solver.prototxt > test/run.log 2>&1
 ```
@@ -45,7 +45,7 @@ We can look at test/mem_used.csv to get an idea of the size of the memory leak f
 ```
 grep '\-0' test/mem_used.csv | head
 ```
-Get the second number, the one after the comma. This is the system memory used close to one second before the first line time in the Caffe run log (test/run.log). The shelf is flat at this point.
+From the first line get the second number, the one after the comma. This is the system memory used close to one second before the first line time in the Caffe run log (test/run.log). The shelf is flat at this point on my chart.
 
 Get the ending memory usage number as follows.
 ```
@@ -53,6 +53,6 @@ tail test/mem_used.csv
 ```
 On the last line the second number, as above, is the end of the shelf to the right in the picture. That difference here is
 ```
-2522.5896148682-2460.8234863281 = 61.766 megabytes (leak) approximately.
+2522.5896148682-2460.8234863281 = 61.766 megabytes leaked approximately.
 ```
 
