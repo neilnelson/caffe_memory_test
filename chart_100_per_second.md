@@ -29,7 +29,7 @@ The next program collects observation times and memory used stats from the test/
 ```
 php test/create_mem_csv.php
 ```
-The following commands are done in RStudio.
+The following commands are done in RStudio. Replace 'caffe_path_from_root' with the path on your computer.
 ```
 mem_used_log = read.csv("/caffe_path_from_root/caffe-master/test/mem_used.csv")
 library(ggplot2)
