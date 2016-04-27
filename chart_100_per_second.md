@@ -21,11 +21,11 @@ get_memory_usage.php is the free stats collection program. You can do a prelimin
 php test/get_memory_usage.php _number_of_seconds_
 ```
 
-At least one second after starting get_memory_usage.php, start the Caffe mnist run. Run these programs in separate terminal windows and while they are running just watch and do not cause any other actions on the computer so that the memory stats being recorded are not confused with other activity.
+About five seconds after starting get_memory_usage.php (to get five seconds on each side of the Caffe run), start the Caffe mnist run. Run these programs in separate terminal windows and while they are running just watch and do not cause any other actions on the computer so that the memory stats being recorded are not confused with other activity. The run takes around 18 seconds here.
 ```
 build/tools/caffe train --solver=test/lenet_solver.prototxt > test/run.log 2>&1
 ```
-The next program collects observation times and memory used stats from the test/get_memory_usage.log and writes those to a csv file test/mem_used.csv. In order to match the times between the memory usage log file and the Caffe log file, the program assumes that the change time on the Caffe log file is the date for the times collected in that file. This would not be true if the Caffe run spanned midnight.
+The next program collects observation times and memory used stats from the test/get_memory_usage.log created by get_memory_usage.php and writes those to a csv file test/mem_used.csv. In order to match the times between the memory usage log file and the Caffe log file the program assumes that the change time on the Caffe log file is the date for the times collected in that file. This would not be true if the Caffe run spanned midnight.
 ```
 php test/create_mem_csv.php
 ```
