@@ -29,13 +29,13 @@
 
     // Use a running average with a gradual correction to converge to
     // .01 second intervals.
-    if (count($time_vector) > $time_vector_length) {
+    if (count($time_vector) > $time_vector_length) { // Get past the inital loading of the vector.
       $sum = 0;
       for($k=1;$k<count($time_vector);++$k)
         $sum += $time_vector[$k]-$time_vector[$k-1];
       array_shift($time_vector); // pop the first value off.
       $avg = $sum / count($time_vector); // At this point count($time_vector) should equal $time_vector_length.
-      $sleep_value += intval(($target_interval - $avg)*250000); // (1000000*.25);
+      $sleep_value += intval(($target_interval - $avg)*250000); // (1000000*.25); Compute the offset from the target and move a quarter of the offset toward the target.
     }
 
     // echo "sleep_value=$sleep_value\n";
