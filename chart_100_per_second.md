@@ -21,7 +21,7 @@ get_memory_usage.php is the free stats collection program. You can do a prelimin
 php test/get_memory_usage.php _number_of_seconds_
 ```
 
-At least one second after starting get_memory_usage.php, start the Caffe mnist run. Run these programs in separate terminal windows.
+At least one second after starting get_memory_usage.php, start the Caffe mnist run. Run these programs in separate terminal windows and while they are running just watch and do not cause any other actions on the computer so that the memory stats being recorded are not confused with other activity.
 ```
 build/tools/caffe train --solver=test/lenet_solver.prototxt > test/run.log 2>&1
 ```
