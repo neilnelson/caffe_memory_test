@@ -15,7 +15,7 @@
   $target_interval = .01; // seconds
   $time_vector_length = 5;
   $time_vector = array();
-  $sleep_value = 5000; // .05 seconds.
+  $sleep_value = 5000; // .005 seconds.
   $log = '';
   for($j=0;$j<$deciseconds;++$j) {
     $time_vector[] = microtime(true); // bool $get_as_float
