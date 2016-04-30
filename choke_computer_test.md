@@ -16,17 +16,17 @@ create_mem_csv2.php
 ```
 
 get_memory_usage2.php records memory statistics from /proc/meminfo every 10 seconds. It also records the time of each observation, the amount of memory the program uses, and kills caffe_iterations.php when the amount of swap used goes above a default or selected limit. The memory statics log is written to test/mem_info.log.
-
+```
 get_memory_usage2.php number_of_observations maximum_swap_kilobytes
-
+```
 The run parameters are not required.
 number_of_observations defaults to zero.  
 maximum_swap defaults to 500000 kilobytes, just under 0.5 gigabytes.
 
 caffe_iterations.php runs the abbreviated Caffe mnist procedure over and over until the number of selected iterations are reached or until the program is killed by get_memory_usage2.php when the amount of swap goes above the selected limit. A csv file of each Caffe run start time is logged in test/run.log.
-
+```
 caffe_iterations.php number_of_iterations
-
+```
 number_of_iterations is not required and defaults to zero indicating an unlimited number of iterations.
 
 create_mem_csv2.php is run after the test to gather the memory statistics from test/mem_info.log into a csv file that may be loaded into RStudio for the charts.
