@@ -19,7 +19,7 @@ get_memory_usage2.php records memory statistics from /proc/meminfo every 10 seco
 ```
 get_memory_usage2.php number_of_observations maximum_swap_kilobytes
 ```
-The run parameters are not required.
+The run parameters are not required.  
 number_of_observations defaults to zero.  
 maximum_swap defaults to 500000 kilobytes, just under 0.5 gigabytes.
 
@@ -31,7 +31,7 @@ number_of_iterations is not required and defaults to zero indicating an unlimite
 
 create_mem_csv2.php is run after the test to gather the memory statistics from test/mem_info.log into a csv file that may be loaded into RStudio for the charts.
 
-Run get_memory_usage2.php and caffe_iterations.php in separate terminal windows in the caffe-master directory as follows. get_memory_usage2.php must be started first and the charts will look better if it is started at least a minute before caffe_iterations.php.  
+Run get_memory_usage2.php and caffe_iterations.php in separate terminal windows in the caffe-master directory\. get_memory_usage2.php must be started first and the charts will look better if it is started at least a minute before caffe_iterations.php.  
 ```
 php test/get_memory_usage2.php  
 ```
@@ -63,6 +63,7 @@ p5 = qplot(x=seconds, y=Swap, data=meminfo, main = colnames(meminfo)[17], ylab=c
 plots[[5]] <- p5
 multiplot(plotlist = plots, cols = 2)
 ```
+The key chart is UsedLessBuffersCache showing that the available memory drops to zero. And Swap showing how that is increasingly used as available memory gets to zero.
 
 To see charts for all the memory statistics, load the following libraries into RStudio
 ```
